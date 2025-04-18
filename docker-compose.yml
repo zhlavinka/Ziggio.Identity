@@ -1,0 +1,22 @@
+version: '3'
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: rotartsi_nimda
+      POSTGRES_PASSWORD: z89MsCGaGMuD8Y
+      POSTGRES_DB: identity_db
+    container_name: identity_db
+    volumes:
+     - postgres:/data/postgres
+    networks:
+     - postgres
+    ports:
+     - 5570:5432
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres: 

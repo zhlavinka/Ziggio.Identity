@@ -1,0 +1,54 @@
+﻿@model Ziggio.Identity.Api.ViewModels.LoginViewModel
+
+<section class="body-sign">
+	<div class="center-sign">
+
+		<a href="/" class="logo float-left">
+			<img src="@Url.Content("~/img/logo.png")" height="70" alt="Porto Admin" />
+		</a>
+
+		<div asp-validation-summary="All"></div>
+
+		<div class="panel card-sign">
+			<div class="card-body">
+				<form autocomplete="off" asp-route="Login">
+					<input type="hidden" asp-for="ReturnUrl" />
+
+					<div class="form-group mb-2">
+						<label>Email</label>
+						<div class="input-group">
+							<input name="email" type="text" class="form-control form-control-lg" asp-for="Email" autofocus />
+							<span class="input-group-text">
+								<i class="fa-solid fa-user"></i>
+							</span>
+						</div>
+					</div>
+
+          <div class="form-group mb-3 border-top-0">
+						<label>Password</label>
+						<div class="input-group">
+							<input name="password" type="password" class="form-control form-control-lg" asp-for="Password" />
+							<span class="input-group-text">
+								<i class="fa-solid fa-lock"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-8">
+							@*<div class="checkbox-custom checkbox-default">
+							<input id="RememberMe" name="rememberme" type="checkbox" />
+							<label for="RememberMe">Remember Me</label>
+							</div>*@
+						</div>
+						<div class="col-sm-4 text-end">
+							<button type="submit" class="btn btn-primary mt-2">Sign In</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>

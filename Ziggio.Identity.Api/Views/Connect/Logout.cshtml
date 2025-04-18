@@ -1,0 +1,38 @@
+﻿@using Microsoft.Extensions.Primitives
+
+<section class="body-sign">
+
+  <div class="center-sign">
+
+    <a href="/" class="logo float-left">
+      <img src="@Url.Content("~/img/logo.png")" height="70" alt="Porto Admin" />
+    </a>
+
+    <div class="panel card-sign mt-4">
+      <div class="card-body">
+
+        <div class="form-group mb-2">
+          <p class="lead text-left">Are you sure you want to sign out?</p>
+        </div>
+
+        <form asp-controller="Connect" asp-action="Logout" method="post">
+          @* Flow the request parameters so they can be received by the LogoutPost action: *@
+          @foreach (var parameter in Context.Request.HasFormContentType ?
+          (IEnumerable<KeyValuePair<string, StringValues>>)Context.Request.Form : Context.Request.Query) {
+            <input type="hidden" name="@parameter.Key" value="@parameter.Value" />
+          }
+
+          <div class="row mb-3">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4 text-end">
+              <input class="btn btn-lg btn-success" name="Confirm" type="submit" value="Yes" />
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
